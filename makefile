@@ -12,7 +12,7 @@ else
 endif
 
 bin/$(NAME).so: src/$(NAME).c src/*.c bin/liblua.a
-	clang $(CFLAGS) $(ARCH) $^ $(LIBS) -o bin/$(NAME).so
+	clang $(CFLAGS) $(ARCH) $^ $(LIBS) -o bin/$(NAME).so -install_name @rpath/$(NAME).so
 
 install: bin/$(NAME).so | $(INSTALL_DIR)
 	mkdir -p $(INSTALL_DIR)
